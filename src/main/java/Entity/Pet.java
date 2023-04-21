@@ -9,8 +9,18 @@ public class Pet {
     private String owner;
     private char sex;
 
+    //For at finde pets
     public Pet(int petID, int chipNumber, int petPedigreeNumber, String name, String owner, char sex) {
         this.petID = petID;
+        this.chipNumber = chipNumber;
+        this.petPedigreeNumber = petPedigreeNumber;
+        this.name = name;
+        this.owner = owner;
+        this.sex = sex;
+    }
+
+    //For at lave pets
+    public Pet(int chipNumber, int petPedigreeNumber, String name, String owner, char sex) {
         this.chipNumber = chipNumber;
         this.petPedigreeNumber = petPedigreeNumber;
         this.name = name;

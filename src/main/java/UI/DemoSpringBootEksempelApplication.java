@@ -1,20 +1,24 @@
-package com.example.demo;
+package UI;
 
-import DB.DBcontroller;
-import DB.TEST;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.ArrayList;
 
 @SpringBootApplication
 public class DemoSpringBootEksempelApplication {
 
 	public static void main(String[] args) {
 
+		/*
 		TESTING testdemo = new TESTING();
 		testdemo.demotesting();
 
-		//SpringApplication.run(DemoSpringBootEksempelApplication.class, args);
-	}
+		UseCase u = new UseCase();
+		DBcontroller dbc = new DBcontroller();
+		dbc.addUser(
+				u.buildUser("Frede", "cool", "laumail@gmail.com", "1234", 12345678));
 
+		 */
+
+		SpringApplication.run(DemoSpringBootEksempelApplication.class, args);
+	}
 }

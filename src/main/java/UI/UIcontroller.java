@@ -7,26 +7,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UIcontroller {
 
-    @RestController
-    public inputController(String url) { // jeg læser input fra html siden og return name
 
-        @GetMapping("/" + url)
-        public String example(@RequestParam(name = "userID") int id,
-        @RequestParam(name = "fName") String fName,
-        @RequestParam(name = "lName") String lName,
-        @RequestParam(name = "email") String email,
-        @RequestParam(name = "password") String password,
-        @RequestParam(name = "phoneNumber") int phoneNumber, Model model) {
-            model.addAttribute("userID", id);
-            model.addAttribute("fName", fName);
-            model.addAttribute("lName", lName);
-            model.addAttribute("email", email);
-            model.addAttribute("password", password);
-            model.addAttribute("phoneNumber", phoneNumber);
-            return "name="+name;
-        }
-    }
+ @GetMapping("/") //Forside
+ public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+  model.addAttribute("name", name);
+  return "index";
+ }
 
+ /*@GetMapping(value= "/")
+public String home() {
+   return "index";
+}*/
+
+
+//TODO - LOGIN SYSTREM
+ @GetMapping("/login")
+ public String showLoginForm() {
+  return "login";
+ }
+
+ @PostMapping("/login")
+ public String login(@RequestParam String username, @RequestParam String password) {
+  // handle login request
+  return "redirect:/greeting";
+ }
+
+ //TODO - LOGIN SUCCESFUL
+ @GetMapping("/greeting")
+ public String greeting(@RequestParam(name="name", required=false, defaultValue="Ragdoll Fans") String name, Model model) {
+  model.addAttribute("name", name);
+  return "greeting";
+ }
+
+ @GetMapping("/oversigt")
+ public String example(Model model) {
+  // perform some logic here
+  return "example-page";
+ }
 }
 
 //is flagged as a @RestController, meaning it is ready for use by Spring MVC to handle web requests.
@@ -48,3 +65,4 @@ public class UIcontroller {
 
 // """GET request is used to get single or multiple resources and @GetMapping annotation
 // for mapping HTTP GET requests onto specific handler methods"""
+

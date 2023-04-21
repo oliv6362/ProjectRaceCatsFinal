@@ -1,0 +1,56 @@
+<html>
+<head>
+    <style>
+        .grid-container-Opgave {
+            display: grid;
+            grid-template-areas: 'felt1 felt1 felt1 felt1'
+                       'felt3 felt4 felt5 felt2'
+                       'felt3 felt4 felt6 felt7'
+                       'felt3 felt8 felt6 felt9';
+            gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container-Opgave > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+
+        .item1 { grid-area: felt1; }
+        .item2 { grid-area: felt2; }
+        .item3 { grid-area: felt3; }
+        .item4 { grid-area: felt4; }
+        .item5 { grid-area: felt5; }
+        .item6 { grid-area: felt6; }
+        .item7 { grid-area: felt7; }
+        .item8 { grid-area: felt8; }
+        .item9 { grid-area: felt9; }
+
+
+
+    </style>
+</head>
+<body>
+
+<h1>Grid Lines</h1>
+
+<div class="grid-container-Opgave">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+</div>
+
+<p>Opgave 2.</p>
+
+</body>
+</html>

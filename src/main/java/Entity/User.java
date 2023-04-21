@@ -9,12 +9,23 @@ public class User {
     private String password;
     private int phoneNumber;
 
+
     public User() {
 
     }
 
+    //Til at finde en user i database
     public User(int userID, String fName, String lName, String email, String password, int phoneNumber) {
         this.userID = userID;
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
+
+    //Til oprettelse af en bruger
+    public User(String fName, String lName, String email, String password, int phoneNumber) {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
@@ -69,6 +80,7 @@ public class User {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 
     @Override
     public String toString() {
