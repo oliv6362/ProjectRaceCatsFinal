@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 
   <meta charset="UTF-8">
@@ -9,40 +10,85 @@
   <link rel="stylesheet" type="text/css" href="styleSheet.css">
 
 
-  <!--Bod elementet i hjemmesiden-->
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The grid container */
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+    'header header header header header header'
+    'navbar navbar navbar navbar navbar navbar'
+    'middle middle middle middle middle middle'
+    'footer footer footer footer footer footer';
+
+      /* grid-column-gap: 10px; - if you want gap between the columns */
+    }
+
+    header {
+      grid-area: header;
+    }
+
+    .navbar {
+      grid-area: navbar;
+    }
+
+    /* Style the middle column */
+    .middle {
+      grid-area: middle;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media (max-width: 600px) {
+      .grid-container  {
+        grid-template-areas:
+      'header header header header header header'
+      'navbar navbar navbar navbar navbar navbar'
+      'middle middle middle middle middle middle'
+      'footer footer footer footer footer footer';
+      }
+    }
+
+  </style>
+
 
 </head>
-<body id="grid-container">
-<header class = "grid-item">
-  <h1>Ragdoll Klubben </h1>
-</header>
+<body>
+
+<div class="grid-container">
+  <header class="header">
+    <h1><img class="headerIcon"  src="katfinalfinal.png">Ragdoll Klubben</h1></header>
+
+  <nav class = "navbar">
+    <ul>
+      <li><a href="index">Forside</a></li>
+      <li><a href="medlemmer">Medlemmer</a></li>
+      <li><a href="katte">Katte</a></li>
+      <li><a href="signUp">Om os</a></li>
+      <li><a href="account">Account</a></li>
+    </ul>
+  </nav>
+
+  <main class="middle">Velkommen til Danmarks største forening inden for Ragdoll racekatte!
+    <img class="mainIcon"  src="dogcatfinal.png"> </main>
 
 
-<nav class = "grid-item">
-  <ul>
-    <li><a href="forside.html">Forside</a></li>
-    <li><a href="Howtorankup.html">How to rankup</a></li>
-    <li><a href="login.html">Logind</a></li>
-    <li><a href="howtonotbebadlikejustin.html">Profil</a></li>
-  </ul>
-</nav>
-
-<main class = "grid-item">
-  <p>This website can provide anything and everything you need to git gut and not be bad anymore.
-    Want to finally not be hardstuck? Just pay a smoll fee of 1000$ you will be the best of the best.
-  </p>
-
-</main>
+  <footer class="footer">
+    <p>&copy; 2023 Ragdoll Klubben</p>
+  </footer>
+</div>
 
 
-
-
-<footer class = "grid-item">
-  <p>&copy; 2023 Totally legit Leauge Guides</p>
-</footer>
 
 </body>
 </html>
-
 
 

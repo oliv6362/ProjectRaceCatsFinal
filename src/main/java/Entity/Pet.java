@@ -3,29 +3,36 @@ package Entity;
 public class Pet {
 
     private int petID;
-    private int chipNumber;
-    private int petPedigreeNumber;
     private String name;
     private String owner;
     private char sex;
+    private int chipNumber;
+    private int petPedigreeNumber;
 
-    //For at finde pets
-    public Pet(int petID, int chipNumber, int petPedigreeNumber, String name, String owner, char sex) {
-        this.petID = petID;
-        this.chipNumber = chipNumber;
-        this.petPedigreeNumber = petPedigreeNumber;
-        this.name = name;
-        this.owner = owner;
-        this.sex = sex;
+
+
+    public Pet() {
+
     }
 
-    //For at lave pets
-    public Pet(int chipNumber, int petPedigreeNumber, String name, String owner, char sex) {
-        this.chipNumber = chipNumber;
-        this.petPedigreeNumber = petPedigreeNumber;
+    //For at finde pets
+
+
+    public Pet(int petID, String name, String owner, char sex, int chipNumber, int petPedigreeNumber) {
+        this.petID = petID;
         this.name = name;
         this.owner = owner;
         this.sex = sex;
+        this.chipNumber = chipNumber;
+        this.petPedigreeNumber = petPedigreeNumber;
+    }
+
+    public Pet(String name, String owner, char sex, int chipNumber, int petPedigreeNumber) {
+        this.name = name;
+        this.owner = owner;
+        this.sex = sex;
+        this.chipNumber = chipNumber;
+        this.petPedigreeNumber = petPedigreeNumber;
     }
 
     public int getPetID() {

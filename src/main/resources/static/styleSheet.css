@@ -1,0 +1,120 @@
+/* Generelle definitioner */
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Calibri, Arial, sans-serif, Helvetica;
+
+}
+
+/* header definitioner */
+header {
+    background-color: #fddbcc;
+    text-align: center;
+}
+
+header h1{
+    font-size: 75px;
+
+    color: orange;
+
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px #000000;
+
+    padding-top: 10px;
+
+}
+
+header h1 img {
+    width: 75px;
+    height: 75px;
+}
+
+
+/* navigation definitioner */
+nav{
+    background-color: #fddbcc;
+    border: 1px solid #000000;
+
+}
+
+nav ul{
+    list-style-type: none;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li{
+    display: inline-block;
+    width: 20%;
+    background-color: #fddbcc;
+    text-align: center;
+
+    border: 1px solid #000000;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px #000000;
+    transition: 1s;
+    cursor: pointer;
+
+
+}
+
+nav ul li:hover{
+    background-color: #f5b094;
+    transform: translatey(-10px);
+
+}
+
+nav ul li a{
+    display: block;
+    color: #000000;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* main definitioner */
+
+main{
+    background-color: #fddbcc;
+    padding: 20px;
+
+    border: 1px solid #000000;
+
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+main img {
+    width: 500px;
+    height: 800px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+/* footer definitioner */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fddbcc;
+    color: black;
+    text-align: center;
+}
+
+
+
+
+

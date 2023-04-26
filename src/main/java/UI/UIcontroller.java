@@ -27,10 +27,25 @@ public String home() {
  }
 
  @PostMapping("/login")
- public String login(@RequestParam String username, @RequestParam String password) {
+ public String login(@RequestParam String email, @RequestParam String password) {
   // handle login request
-  return "redirect:/greeting";
+  System.out.println(email + " " + password);
+  //String usernameLogin = email;
+  //System.out.println(usernameLogin);
+
+//to sec lau ligger op på git
+  //UseCase 
+
+
+  return "/greeting";
  }
+
+/*
+ @GetMapping("/Authentication")
+ public String loginAuthentication(@RequestParam(name="name", required=false, defaultValue="Ragdoll Fans") String name, Model model) {
+  model.addAttribute("name", name);
+  return "greeting";
+ }*/
 
  //TODO - LOGIN SUCCESFUL
  @GetMapping("/greeting")
@@ -38,6 +53,27 @@ public String home() {
   model.addAttribute("name", name);
   return "greeting";
  }
+
+
+ //TODO SIGNUP
+ @GetMapping("/signUp")
+ public String showSignupForm() {
+  return "signUp";
+ }
+
+
+ @PostMapping("/signUp")
+ public String signUp(@RequestParam String fname, @RequestParam String lname, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
+  // handle signup request
+  System.out.println(fname + " " + lname + " " + email+ " " + psw+ " " + phoneNumber);
+
+  UseCase usecase = new UseCase();
+  usecase.buildUser(fname, lname, email, psw, phoneNumber);
+
+
+  return "/greeting";
+ }
+
 
  @GetMapping("/oversigt")
  public String example(Model model) {
