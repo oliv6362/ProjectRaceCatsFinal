@@ -1,6 +1,11 @@
 package DB;
 
 import Entity.User;
+import Entity.Pet;
+import Usecase.UseCase;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +19,7 @@ public class DBcontroller {
     public Connection connection;
     private Statement stmt;
 
-    DBcontroller() {
+    public DBcontroller() {
         connection = null;
         stmt = null;
         try {

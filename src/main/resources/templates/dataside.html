@@ -1,9 +1,10 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>My Profile</title>
 </head>
 <body>
-<h1>Welcome, <span th:text="${myObject.name}"></span>!</h1>
+<h1>Welcome, <span th:text="${user.fName}"></span>!</h1>
 <h1>Dit studienummer er , <span th:text="${myObject.stdnr}"></span>!</h1>
 </body>
 </html>

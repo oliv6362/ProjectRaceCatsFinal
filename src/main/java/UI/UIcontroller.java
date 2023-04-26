@@ -3,6 +3,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class UIcontroller {
@@ -49,8 +51,11 @@ public String home() {
 
  //TODO - LOGIN SUCCESFUL
  @GetMapping("/greeting")
- public String greeting(@RequestParam(name="name", required=false, defaultValue="Ragdoll Fans") String name, Model model) {
-  model.addAttribute("name", name);
+ public String greeting(@RequestParam(name="fName", required=false, defaultValue="Ragdoll Fan") String fName,
+                        @RequestParam(name="eName") String eName,
+                        Model model) {
+  model.addAttribute("fName", fName);
+  model.addAttribute("eName", eName);
   return "greeting";
  }
 
@@ -80,6 +85,17 @@ public String home() {
   // perform some logic here
   return "example-page";
  }
+
+
+
+
+ @GetMapping("/dataside")
+ public String getUser(Model model) {
+  User[] users = new User[]{new User("Lau", "b", "gmail", "123", 12345), new User("Lea", "b", "gmail", "123", 12345)};
+  model.addAttribute("users", users);
+  return "users";
+ }
+
 }
 
 //is flagged as a @RestController, meaning it is ready for use by Spring MVC to handle web requests.
