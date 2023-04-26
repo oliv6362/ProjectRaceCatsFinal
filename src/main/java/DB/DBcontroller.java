@@ -21,7 +21,7 @@ public class DBcontroller {
 
     public DBcontroller() {
 
-        //this is Marcus telling oliver he is the github
+        //this is Marcus
         connection = null;
         stmt = null;
         try {
