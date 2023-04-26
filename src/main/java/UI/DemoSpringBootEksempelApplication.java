@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoSpringBootEksempelApplication {
 
 	public static void main(String[] args) {
-
+		System.out.println("i start here");
 		/*
 		TESTING testdemo = new TESTING();
 		testdemo.demotesting();
