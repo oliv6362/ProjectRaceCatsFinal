@@ -21,7 +21,7 @@ public class DBcontroller {
 
     public DBcontroller() {
 
-        //this is Marcus telling
+        //this is Marcus telling me this is how you write code in
         connection = null;
         stmt = null;
         try {
