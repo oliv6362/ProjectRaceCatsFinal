@@ -66,8 +66,7 @@ public class DBcontroller {
         }
     }
 
-
-    public ArrayList<User> getAllUser() {
+    public ArrayList<User> getAllUsers() {
         try {
             String sql = "SELECT * FROM User ";
             Statement stmt = connection.createStatement();

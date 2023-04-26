@@ -92,12 +92,10 @@ public String home() {
 // DVS. @RestController GØR BEGGE DELE LOL (i think?)
 // DVS. @GetMapping NOTERER URL (i think?)
 
-
 // In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container
 // are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
 
 // DVS. @bean er Objekt
-
 
 // """GET request is used to get single or multiple resources and @GetMapping annotation
 // for mapping HTTP GET requests onto specific handler methods"""
