@@ -1,4 +1,7 @@
 package UI;
+
+import Entity.User;
+import Usecase.UseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -97,6 +100,27 @@ public String home() {
  }
 
 }
+
+
+
+
+
+/*
+ public void registrerController() {
+
+
+
+ }
+
+
+   @GetMapping({"/example"})
+   public String example(@RequestParam(name = "name") String name, @RequestParam(name = "age") int age, Model model) {
+    model.addAttribute("name", name);
+    model.addAttribute("age", age);
+    return "name=" + name;
+   }*/
+
+
 
 //is flagged as a @RestController, meaning it is ready for use by Spring MVC to handle web requests.
 // @GetMapping maps / to the index() method. When invoked from a browser or by using curl on the command line,
