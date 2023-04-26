@@ -54,8 +54,8 @@ public class DBcontroller {
 
             while (rs.next()) {
                 u.setUserID(rs.getInt("userID"));       //ID
-                u.setfName(rs.getString("fNavn"));      //fnavn
-                u.setlName(rs.getString("lNavn"));      //enavn
+                u.setfName(rs.getString("fName"));      //
+                u.setlName(rs.getString("lName"));      //
                 u.setEmail(rs.getString("email"));
                 u.setPassword(rs.getString("password"));
                 u.setPhoneNumber(rs.getInt("phoneNumber"));
@@ -78,8 +78,8 @@ public class DBcontroller {
                 {
                     User u = new User(
                             rs.getInt("userID"),      //ID
-                            rs.getString("fNavn"),      //fnavn
-                            rs.getString("lNavn"),      //enavn//postnr
+                            rs.getString("fName"),      //
+                            rs.getString("lName"),      ////postnr
                             rs.getString("email"),
                             rs.getString("password"),
                             rs.getInt("phoneNumber"));
@@ -286,4 +286,43 @@ public class DBcontroller {
             sql = "SELECT lokation FROM Pakke WHERE userID = '" + userID + "'";
             stmt.execute(sql);
 
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                pakke = rs.getString("lokation");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return pakke;
+    }
+}*/
+
+    //todo fra frisør salon
+
+    /*    public int redigerBehandlingsType(int bestillingsId, int nyBehandlingsType) {
+         int bestillingId = 0;
+
+        try {
+            String sql = "UPDATE Bestilling SET behandlingsType = '" + nyBehandlingsType + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
+            stmt.execute(sql);
+
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                bestillingId = rs.getInt("behandlingsType");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bestillingId;
+    }*/
 }
