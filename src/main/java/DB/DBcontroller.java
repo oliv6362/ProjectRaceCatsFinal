@@ -20,6 +20,8 @@ public class DBcontroller {
     private Statement stmt;
 
     public DBcontroller() {
+
+        //this is Marcus telling oliver he is the github
         connection = null;
         stmt = null;
         try {
