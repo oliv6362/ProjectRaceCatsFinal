@@ -21,7 +21,7 @@ public class DBcontroller {
 
     public DBcontroller() {
 
-        //this is Marcus
+        //this is Marcus telling
         connection = null;
         stmt = null;
         try {
