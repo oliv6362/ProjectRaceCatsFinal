@@ -28,10 +28,10 @@ public class DBcontroller {
         }
     }
 
-    //TODO - Users
+    //TODO - Users - done
     public void addUser(User u) {
         try {
-            String sql = "INSERT INTO User (fName,lName,email,password,phoneNumber) VALUES('" //ret til database table name
+            String sql = "'INSERT INTO user (fName,lName,email,password,phoneNumber) VALUES('" //ret til database table name
                     + String.valueOf(u.getfName()) + "','" + u.getlName() + "','";
             sql = sql + u.getEmail() + "','" + u.getPassword() + "','" + u.getPhoneNumber() + "')";
 
@@ -99,7 +99,7 @@ public class DBcontroller {
         return 0;
     }
 
-    //todo slette user
+    //todo slette user - ikke helt done! mangler ui
     public static void deleteUser(int userID) {
 
         String url = "jdbc:mysql://localhost:3306/RaceKatte";
@@ -118,7 +118,7 @@ public class DBcontroller {
     }
 
 
-    //TODO - Kæledyr
+    //TODO - Kæledyr -done
     public void addPet(Pet p) {
         try {
             String sql = "INSERT INTO pet (name,owner,sex,chipNumber,petPedigreeNumber) VALUES('" //ret til database table name
@@ -134,7 +134,7 @@ public class DBcontroller {
             throwables.printStackTrace();
         }
     }
-
+    //todo getAllPets -done
     public ArrayList<User> getAllPets() {
         try {
             String sql = "select * from user where userid '" +"'";
@@ -266,7 +266,12 @@ public class DBcontroller {
             Statement stmt = connection.createStatement();
             stmt.execute(sql);
             ResultSet rs = stmt.getResultSet();
-
+            //todo skal ikke ligge her
+            ArrayList<Pet> pets;
+            pet = db.getPets();
+            for (int i = 0; i < pets.size(); i++) {
+                System.out.println(pets.get(i));
+                // todo ^ryk mig
             pet.setName(rs.getString("name"));
             pet.setName(rs.getString("owner"));      //nøgle til userID
             pet.setName(rs.getString("sex"));
