@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String password;
     private int phoneNumber;
+    private boolean login;
 
 
     public User() {
@@ -31,6 +32,9 @@ public class User {
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User(String email, String password) { //Til login/session request
     }
 
     public int getUserID() {
@@ -81,6 +85,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public boolean getLogin() {
+        return login;
+    }
+
+    public void setLogin(boolean login) {this.login = login;}
 
     @Override
     public String toString() {

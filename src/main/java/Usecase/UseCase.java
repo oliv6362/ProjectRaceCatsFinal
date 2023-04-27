@@ -12,33 +12,19 @@ public class UseCase {
 
 
     //TODO Login
+    public boolean loginUser(String email, String password) {
 
-    public int login(String email, String password) {
+        hentetUser = db.getUserPass(hentetUser,email, password);
 
-
-
-
-
-        /*
-        User hentetUser = db.getUserPass();
-
-        if (.equals(hentetUser.getEmail()) && userPassword.equals(hentetUser.getPassword())) {
-            System.out.print("Du er nu logget ind som: " );
-            if (hentetUser.getIsMedarbejder() == 1) {
-                System.out.println("kunde");
-                accessType = 1;
-            } else if (hentetUser.getIsMedarbejder() == 2) {
-                System.out.println("medarbejder");
-                accessType = 2;
-            }
+        if (email.equals(hentetUser.getEmail()) && password.equals(hentetUser.getPassword() )) {
+            System.out.print("Du er nu logget ind");
+            hentetUser.setLogin(true);
+            return true;
 
         } else {
             System.out.println("Email eller Password var ikke korrekt");
-            accessType = 3;
-
+            return false;
         }
-        return accessType;*/
-        return 1;
     }
 
 
@@ -63,6 +49,9 @@ public class UseCase {
 
 
     // TODO - Rediger user
+    public void editUser(String fName, String lName, String email, String password, int phoneNumber){
+        db.editUser(new User(fName, lName, email, password, phoneNumber));
+    }
 
     // TODO - Slet user - db er klar
     //kalde DB controllers metode og aflevere userID. sammen for petID

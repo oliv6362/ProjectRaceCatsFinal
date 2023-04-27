@@ -59,8 +59,9 @@ public class UIcontroller {
  }
 
  @PostMapping("/login")
- public String login(@RequestParam String email, @RequestParam String password) {
+ public String login(@RequestParam String email, @RequestParam String password, HttpSession session) { //HttpSession er et springboot objekt
   // handle login request
+
   System.out.println(email + " " + password);
 
   if (!uc.loginUser(email, password)) {
@@ -72,6 +73,20 @@ public class UIcontroller {
    return "redirect:/dashboard";
   }
  }
+
+ @GetMapping("/dashboard")
+ public String showDashboard(HttpServletRequest request, Model model) { //httpServletRequest you guessed it det et springboot objekt
+  HttpSession session = request.getSession();
+  User user = (User) session.getAttribute("user");
+  System.out.println("Session id: " + session.getId());
+  model.addAttribute("user", user);
+  return "dashboard";
+ }
+
+
+
+
+
 
 
 
@@ -113,6 +128,25 @@ public class UIcontroller {
  }
 
 
+ @GetMapping("/editMember")
+ public String showEditForm() {
+  return "editMember";
+ }
+
+ @PostMapping("/editMember")
+ public String editMember(@RequestParam String fname, @RequestParam String lname, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
+  // handle signup request
+  System.out.println(fname + " " + lname + " " + email+ " " + psw+ " " + phoneNumber);
+
+  uc.editUser(fname, lname, email, psw, phoneNumber);
+
+
+  return "greeting";
+ }
+
+
+
+
  @GetMapping("/oversigt")
  public String example(Model model) {
   // perform some logic here
@@ -124,9 +158,10 @@ public class UIcontroller {
 
  @GetMapping("/dataside")
  public String getUser(Model model) {
-  User[] users = new User[]{new User("Lau", "b", "gmail", "123", 12345), new User("Lea", "b", "gmail", "123", 12345)};
-  model.addAttribute("users", users);
-  return "users";
+  //User[] users = new User[]{new User("Lau", "b", "gmail", "123", 12345), new User("Lea", "b", "gmail", "123", 12345)};
+  User user = new User (2, "b", "gmail", "123", "123", 12345);
+  model.addAttribute("user", user);
+  return "dataside";
  }
 
 

@@ -1,11 +1,30 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>My Profile</title>
+  <title>Profiles</title>
 </head>
 <body>
-<h1>Welcome, <span th:text="${user.fName}"></span>!</h1>
-<h1>Dit studienummer er , <span th:text="${myObject.stdnr}"></span>!</h1>
+<h1>Profiles</h1>
+<table>
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td th:text="${user.getfName()}"></td>
+    <td th:text="${user.getlName()}"></td>
+    <td th:text="${user.getEmail()}"></td>
+    <td th:text="${user.getPhoneNumber()}"></td>
+  </tr>
+  </tbody>
+</table>
+<form th:action="@{/profiles.html}" method="get">
+  <button type="submit">Show User Cats</button>
+</form>
 </body>
 </html>
-
