@@ -44,31 +44,7 @@ public class DBcontroller {
             throwables.printStackTrace();
         }
     }
-
-    public User getUser(int Id) {
-        try {
-            User u = new User();
-
-            String sql = "SELECT * FROM User where userId = '" + Id + "'" ;
-            Statement stmt = connection.createStatement();
-            stmt.execute(sql);
-
-            ResultSet rs = stmt.getResultSet();
-
-            while (rs.next()) {
-                u.setUserID(rs.getInt("userID"));       //ID
-                u.setfName(rs.getString("fName"));      //
-                u.setlName(rs.getString("lName"));      //
-                u.setEmail(rs.getString("email"));
-                u.setPassword(rs.getString("password"));
-                u.setPhoneNumber(rs.getInt("phoneNumber"));
-            }
-            return u;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    //todo hvad fuck mener programmet med SQL Dialect og hvordan korigere vi det ?
     public ArrayList<User> getAllUsers() {
         try {
             String sql = "SELECT * FROM User ";
@@ -93,10 +69,20 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
+    //todo edit user - ikke done!
+    public void editUser(User user) {
+        String sql = "Insert INTO user (fname,lname,email,password,phonenumber) " +
+                "values ('" + user.getfName() + "','" + user.getlName()+"','" + user.getEmail()+"','" +
+                user.getPassword()+"','" + user.getPhoneNumber()+"')";
 
-    public int editUser() {
-
-        return 0;
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //todo slette user - ikke helt done! mangler ui
@@ -203,10 +189,8 @@ public class DBcontroller {
     }
 
     //TODO - TESTER LOGIN
-
-    public User getUserPass(String email, String password) {
+    public User getUserPass(User u,String email, String password) {
         try {
-            User u = new User();
 
             //String sql = "SELECT * FROM User where password = '" + password + "'" + " AND WHERE eMail = '" + eMail + "'";
             String sql = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + password + "'";
@@ -242,10 +226,7 @@ public class DBcontroller {
             stmt.execute(sql);
             ResultSet rs = stmt.getResultSet();
 
-            user.setfName(rs.getString("fName"));      //
-            user.setlName(rs.getString("lName"));      //
-            user.setPassword(rs.getString("password")); // TODO need verification inden skift (if there is time)
-            user.setPhoneNumber(rs.getInt("phoneNumber"));
+            ;
 
             connection.close();
             return user;

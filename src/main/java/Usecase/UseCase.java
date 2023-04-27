@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class UseCase {
     DBcontroller db = new DBcontroller();
-
+    public User hentetUser = new User();
 
     //TODO Login
     public boolean loginUser(String email, String password) {
@@ -97,7 +97,7 @@ public class UseCase {
     // TODO - Logout
 
 
-    //public
+
 
 
 }
