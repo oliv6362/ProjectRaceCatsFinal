@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+<h1>Welcome to your Dashboard, <span th:text="${username}"></span>!</h1>
+<p>Session ID: <span th:text="${session.id}"></span></p>
+<p>Session creation time: <span th:text="${session.creationTime}"></span></p>
+<p>Session last access time: <span th:text="${session.lastAccessedTime}"></span></p>
+<p>Session max inactive interval: <span th:text="${session.maxInactiveInterval}"></span></p>
+<form th:action="@{/logout}" method="post">
+  <button type="submit">Logout</button>
+</form>
+</body>
+</html>
