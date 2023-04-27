@@ -42,8 +42,21 @@ public class UseCase {
     }
 
 
+    //when pressing accout run this
+    public User getUser(){
 
-    //TODO - Opret user
+        return hentetUser;
+    }
+    public void editAccount(User user){
+        db.editUser(user);
+    }
+
+
+
+
+
+
+    //TODO - Opret user - done
     public void buildUser(String fName, String lName, String email, String password, int phoneNumber){
         db.addUser(new User(fName, lName, email, password, phoneNumber));
     }

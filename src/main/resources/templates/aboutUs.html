@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html
-          xmlns:sec="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 
   <meta charset="UTF-8">
@@ -12,6 +11,7 @@
 
 
   <style>
+
     /* The grid container */
     .grid-container {
       display: grid;
@@ -34,6 +34,10 @@
       grid-area: middle;
     }
 
+    .right{
+      grid-area: right;
+    }
+
     .footer {
       grid-area: footer;
     }
@@ -50,8 +54,6 @@
     }
   </style>
 
-
-
 </head>
 <body>
 
@@ -65,28 +67,11 @@
       <li><a href="members">Medlemmer</a></li>
       <li><a href="cats">Katte</a></li>
       <li><a href="aboutUs">Om os</a></li>
-      <li><a href="account">Konto</a></li>
-      <li><a href="login">login</a></li>
-      <li><a href="signUp">Opretbruger</a></li>
+      <li><a href="account">Account</a></li>
     </ul>
   </nav>
 
-
-
-  <main class="middle">Velkommen til Danmarks største forening inden for Ragdoll racekatte!
-    <img class="mainIcon"  src="dogcatfinal.png">
-
-    <div sec:authorize="isAuthenticated()">
-      This content is only shown to authenticated users.
-    </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-      This content is only shown to administrators.
-    </div>
-    <div sec:authorize="hasRole('user')">
-      This content is only shown to users.
-    </div>
-
-  </main>
+  <main class="middle">Her kan du læse omkring Ragdoll klubben!</main>
 
 
   <footer class="footer">

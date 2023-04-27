@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DBcontroller {
-
-
     public Connection connection;
     private Statement stmt;
 
@@ -120,7 +118,6 @@ public class DBcontroller {
     }
 
 
-
     //TODO - Kæledyr
     public void addPet(Pet p) {
         try {
@@ -140,7 +137,8 @@ public class DBcontroller {
 
     public ArrayList<User> getAllPets() {
         try {
-            String sql = "SELECT * FROM Pet ";
+            String sql = "select * from user where userid '" +"'";
+
             Statement stmt = connection.createStatement();
             stmt.execute(sql);
             ResultSet rs = stmt.getResultSet();
@@ -162,6 +160,30 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
+    //todo getPet2 virker den?
+    public Pet getPet2(Pet pet){
+        String sql = "select * from user where userid '" + pet.getPetID() + "'";
+        //String query = "select * from user where userid 'user' "; explanation for Sofia
+        try {
+
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            ResultSet rs = stmt.getResultSet();
+
+            pet.setName(rs.getString("name"));
+            pet.setName(rs.getString("owner"));      //nøgle til userID
+            pet.setName(rs.getString("sex"));
+            pet.setName(rs.getString("chipNumber"));
+            pet.setName(rs.getString("petPedigreeNumber"));
+
+            connection.close();
+            return pet;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //todo slette kæledyr
     public static void deletePet(int petID) {
 
@@ -179,7 +201,6 @@ public class DBcontroller {
             e.printStackTrace();
         }
     }
-
 
     //TODO - TESTER LOGIN
 
@@ -208,7 +229,9 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
-//todo snakke med Lærer mikel om info pass direkte til UI eller igennem Controller laget ?(CLean architecture)
+
+
+    //todo snakke med Lærer mikel om info pass direkte til UI eller igennem Controller laget ?(CLean architecture) -a ok send den igennem lag
     // til senere javadocs: metode henter delvis user info, sendes til ?,11 efter redigereing retuneres til DB.
     public User getUser(User user){
         String sql = "select * from user where userid '" + user.getUserID() + "'";
@@ -231,6 +254,10 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
+    //todo bare lige så vi kan kører programmet
+
+    //todo SLET ALT HERUNDER SNART!!!!
+/*
     public Pet getPet(Pet pet){
         String sql = "select * from user where userid '" + pet.getPetID() + "'";
         //String query = "select * from user where userid 'user' "; explanation for Sofia
@@ -253,6 +280,8 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
+
+*/
     //TODO - Udstilling
 
     //todo slet udkommenteret når done
@@ -328,5 +357,30 @@ public class DBcontroller {
             throwables.printStackTrace();
         }
         return bestillingId;
-    }*/
+    }
+
+
+        public User getUserID(int Id) {
+            try {
+                User u = new User();
+
+                String sql = "SELECT * FROM User where userId = '" + Id + "'" ;
+                Statement stmt = connection.createStatement();
+                stmt.execute(sql);
+
+                ResultSet rs = stmt.getResultSet();
+
+                while (rs.next()) {
+                    u.setUserID(rs.getInt("userID"));       //ID
+                    u.setfName(rs.getString("fName"));      //
+                    u.setlName(rs.getString("lName"));      //
+                    u.setEmail(rs.getString("email"));
+                    u.setPassword(rs.getString("password"));
+                    u.setPhoneNumber(rs.getInt("phoneNumber"));
+                }
+                return u;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }*/
 }

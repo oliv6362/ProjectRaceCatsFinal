@@ -6,6 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoSpringBootEksempelApplication {
 
+	/**
+	 *
+	 *
+	 * @param args
+	 */
+
 	public static void main(String[] args) {
 		System.out.println("i start here");
 		/*

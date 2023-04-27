@@ -2,6 +2,9 @@ package UI;
 
 import Entity.User;
 import Usecase.UseCase;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.boot.web.server.Cookie;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,17 +15,41 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UIcontroller {
 
+ UseCase uc = new UseCase();
 
+
+
+//TODO - index aka forside
  @GetMapping("/") //Forside
  public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
   model.addAttribute("name", name);
   return "index";
  }
+ @GetMapping("/frontPage")
+ public String showFrontPage() {
+  return "index";
+ }
 
- /*@GetMapping(value= "/")
-public String home() {
-   return "index";
-}*/
+ @GetMapping("/members")
+ public String showAllMembersPage() {
+  return "members";
+ }
+
+ @GetMapping("/cats")
+ public String showAllCatsPage() {
+  return "cats";
+ }
+
+ @GetMapping("/aboutUs")
+ public String showAboutUsPage() {
+  return "aboutUs";
+ }
+
+//TODO - Account
+ @GetMapping("/account")
+ public String showAccountPage() {
+  return "account";
+ }
 
 
 //TODO - LOGIN SYSTREM
@@ -35,15 +62,18 @@ public String home() {
  public String login(@RequestParam String email, @RequestParam String password) {
   // handle login request
   System.out.println(email + " " + password);
-  //String usernameLogin = email;
-  //System.out.println(usernameLogin);
 
-//to sec lau ligger op på git
-  //UseCase 
-
-
-  return "/greeting";
+  if (!uc.loginUser(email, password)) {
+   System.out.println("forkert bruger");
+   return "login";
+  } else {
+   User user = new User(email, password); // create a new User object
+   session.setAttribute("user", user); // store the User object in the session
+   return "redirect:/dashboard";
+  }
  }
+
+
 
 /*
  @GetMapping("/Authentication")
@@ -55,10 +85,10 @@ public String home() {
  //TODO - LOGIN SUCCESFUL
  @GetMapping("/greeting")
  public String greeting(@RequestParam(name="fName", required=false, defaultValue="Ragdoll Fan") String fName,
-                        @RequestParam(name="eName") String eName,
+                        @RequestParam(name="lName") String lName,
                         Model model) {
   model.addAttribute("fName", fName);
-  model.addAttribute("eName", eName);
+  model.addAttribute("lName", lName);
   return "greeting";
  }
 
@@ -70,16 +100,16 @@ public String home() {
  }
 
 
+
  @PostMapping("/signUp")
  public String signUp(@RequestParam String fname, @RequestParam String lname, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
   // handle signup request
   System.out.println(fname + " " + lname + " " + email+ " " + psw+ " " + phoneNumber);
 
-  UseCase usecase = new UseCase();
-  usecase.buildUser(fname, lname, email, psw, phoneNumber);
+  uc.buildUser(fname, lname, email, psw, phoneNumber);
 
 
-  return "/greeting";
+  return "greeting";
  }
 
 
@@ -99,7 +129,56 @@ public String home() {
   return "users";
  }
 
-}
+
+
+ //when someone presses account run this - not finished
+ public void getUser(){
+  uc.getUser();
+ }
+
+
+ @GetMapping("/edituser")
+ public String showEditMemberPage() {
+  return "edituser";
+ }
+
+
+ @PostMapping("/edituser")
+ public String readMembertest() {
+   User user = uc.getUser();
+   //edit name button = user.getfnavn
+
+  System.out.println("den er her");
+
+  editMembertest(user);//probably doesn't work
+   return "frontPage";
+  }
+
+ public void editMembertest(User user){
+   uc.editAccount(user);
+ }
+
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
