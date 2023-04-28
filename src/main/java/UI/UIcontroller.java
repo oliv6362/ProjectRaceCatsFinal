@@ -86,17 +86,6 @@ public class UIcontroller {
 
 
 
-
-
-
-
-/*
- @GetMapping("/Authentication")
- public String loginAuthentication(@RequestParam(name="name", required=false, defaultValue="Ragdoll Fans") String name, Model model) {
-  model.addAttribute("name", name);
-  return "greeting";
- }*/
-
  //TODO - LOGIN SUCCESFUL
  @GetMapping("/greeting")
  public String greeting(@RequestParam(name="fName", required=false, defaultValue="Ragdoll Fan") String fName,
@@ -108,23 +97,22 @@ public class UIcontroller {
  }
 
 
+
  //TODO SIGNUP
  @GetMapping("/signUp")
  public String showSignupForm() {
   return "signUp";
  }
 
-
-
  @PostMapping("/signUp")
- public String signUp(@RequestParam String fname, @RequestParam String lname, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
+ public String signUp(@RequestParam String fName, @RequestParam String lName, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
   // handle signup request
-  System.out.println(fname + " " + lname + " " + email+ " " + psw+ " " + phoneNumber);
+  System.out.println(fName + " " + lName + " " + email+ " " + psw+ " " + phoneNumber);
 
-  uc.buildUser(fname, lname, email, psw, phoneNumber);
+  uc.buildUser(fName, lName, email, psw, phoneNumber);
 
 
-  return "greeting";
+  return "redirect:/frontPage";
  }
 
 

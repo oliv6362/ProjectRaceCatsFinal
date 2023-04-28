@@ -27,7 +27,7 @@ public class UseCase {
         }
     }
 
-
+    //todo til redigering af bruger - ikke done
     //when pressing accout run this
     public User getUser(){
 
@@ -36,8 +36,6 @@ public class UseCase {
     public void editAccount(User user){
         db.editUser(user);
     }
-
-
 
 
 
@@ -54,9 +52,8 @@ public class UseCase {
     }
 
     // TODO - Slet user - db er klar
-    //kalde DB controllers metode og aflevere userID. sammen for petID
 
-    // TODO - Vis alle users (hentet fra frisaør - skriv om hvis nødvendigt)
+    // TODO - Vis alle users ikke done
     public void showUsers(){
         System.out.println("Hent alle users");
         ArrayList<User> userList;
@@ -75,29 +72,13 @@ public class UseCase {
     // TODO - Slet pet - db er klar
     //se SLette user
 
-    // TODO - Vis alle pets (hentet fra frisaør - skriv om hvis nødvendigt)
-    public void showPets(){
+    // TODO - Vis alle pets - ikke done
+   /* public void showPets(){
         System.out.println("Hent alle pets");
         ArrayList<User> petList;
         petList = db.getAllPets();
         for (int i = 0; i < petList.size(); i++) {
             System.out.println(petList.get(i));
         }
-    }
-
-    // TODO - Login
-
-    public User login2(){
-// vi skal bruge sammenligning med db, på username og password. password må ikke være sygenligt for andre.
-// ved manglene sammenligning eks. ved tastefejl eller manglende bruger skal den retunere fejl.
-
-        return null;
-    }
-
-    // TODO - Logout
-
-
-
-
-
+    }*/
 }

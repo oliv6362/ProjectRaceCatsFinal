@@ -101,6 +101,9 @@ main{
     text-transform: uppercase;
     text-align: center;
 
+
+
+
 }
 
 main img {
@@ -109,6 +112,7 @@ main img {
     display: block;
     margin: 0 auto;
     padding-top: 100px;
+
 }
 
 /* footer definitioner */

@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" type="text/css" href="styleSheet.css">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
+    /* The grid container */
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+                'header header header header header header'
+                'navbar navbar navbar navbar navbar navbar'
+                'middle middle middle middle middle middle'
+                'footer footer footer footer footer footer';
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .navbar {
+      grid-area: navbar;
+    }
+
+    .middle {
+      grid-area: middle;
+      text-align: left;
+    }
+
+    .right{
+      grid-area: right;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media (max-width: 600px) {
+      .grid-container  {
+        grid-template-areas:
+                'header header header header header header'
+                'navbar navbar navbar navbar navbar navbar'
+                'middle middle middle middle middle middle'
+                'footer footer footer footer footer footer';
+      }
+    }
+
+
     body {font-family: Arial, Helvetica, sans-serif;}
-    form {border: 3px solid #f1f1f1;}
+    form {border: 3px solid #000000;}
 
     input[type=text], input[type=password] {
       width: 100%;
@@ -16,8 +68,8 @@
     }
 
     button {
-      background-color: #04AA6D;
-      color: white;
+      background-color: #cceefd;
+      color: #000000;
       padding: 14px 20px;
       margin: 8px 0;
       border: none;
@@ -66,36 +118,61 @@
     }
   </style>
 </head>
+
 <body>
+<div class="grid-container">
+  <header class="header">
+    <h1><img class="headerIcon"  src="katfinalfinal.png">Ragdoll Klubben</h1></header>
 
-<h2>Login Form</h2>
+  <nav class = "navbar">
+    <ul>
+      <li><a href="frontPage">Forside</a></li>
+      <li><a href="members">Medlemmer</a></li>
+      <li><a href="cats">Katte</a></li>
+      <li><a href="aboutUs">Om os</a></li>
+      <li><a href="account">Account</a></li>
+    </ul>
+  </nav>
 
-<form method="post" action="/login">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+  <main class="middle">
+    <h2>Login Form</h2>
+    <form method="post" action="/login">
 
-  <div class="container">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter email" name="email" required>
+      <div class="container">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Enter email" name="email" required>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter password" name="password" required>
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter password" name="password" required>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
 
+      <div class="container" style="background-color:#fddbcc">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </main>
 
-
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-
+  <footer class="footer">
+    <p>&copy; 2023 Ragdoll Klubben</p>
+  </footer>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
