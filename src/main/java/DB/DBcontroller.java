@@ -244,11 +244,4 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
-
-
-
 }

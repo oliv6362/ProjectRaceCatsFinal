@@ -9,15 +9,11 @@ public class Pet {
     private int chipNumber;
     private int petPedigreeNumber;
 
-
-
     public Pet() {
 
     }
 
     //For at finde pets
-
-
     public Pet(int petID, String name, String owner, char sex, int chipNumber, int petPedigreeNumber) {
         this.petID = petID;
         this.name = name;

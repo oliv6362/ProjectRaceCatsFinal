@@ -38,8 +38,6 @@ public class UseCase {
     }
 
 
-
-
     //TODO - Opret user - done
     public void buildUser(String fName, String lName, String email, String password, int phoneNumber){
         db.addUser(new User(fName, lName, email, password, phoneNumber));

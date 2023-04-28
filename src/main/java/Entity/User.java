@@ -10,7 +10,6 @@ public class User {
     private int phoneNumber;
     private boolean login;
 
-
     public User() {
 
     }
