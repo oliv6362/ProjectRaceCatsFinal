@@ -28,7 +28,6 @@ public class DBcontroller {
         }
     }
 
-    //TODO - Users - done
     public void addUser(User u) {
         try {
             String sql = "INSERT INTO user (fName,lName,email,password,phoneNumber) VALUES('" //ret til database table name
@@ -45,7 +44,6 @@ public class DBcontroller {
         }
     }
 
-    //todo ikke helt done
     public User getUser(User user){
         String sql = "select * from user where userid '" + user.getUserID() + "'";
         //String query = "select * from user where userid 'user' "; explanation for Sofia
@@ -65,8 +63,6 @@ public class DBcontroller {
         }
     }
 
-
-    //todo not done
     public ArrayList<User> getAllUsers() {
         try {
             String sql = "SELECT * FROM User ";
@@ -92,8 +88,6 @@ public class DBcontroller {
         }
     }
 
-
-    //todo edit user - ikke done!
     public void editUser(User user) {
         String sql = "Insert INTO user (fname,lname,email,password,phonenumber) " +
                 "values ('" + user.getfName() + "','" + user.getlName()+"','" + user.getEmail()+"','" +
@@ -109,8 +103,6 @@ public class DBcontroller {
         }
     }
 
-
-    //todo slette user - ikke helt done
     public static void deleteUser(int userID) {
 
         String url = "jdbc:mysql://localhost:3306/RaceKatte";
@@ -121,15 +113,12 @@ public class DBcontroller {
             PreparedStatement pstmt = conn.prepareStatement("DELETE * FROM user, pet WHERE owner = '" + userID + "'");
             pstmt.execute();
 
-            System.out.println("User Deleted");
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
-    //TODO - Kæledyr - ikke helt done
     public void addPet(Pet p) {
         try {
             String sql = "INSERT INTO pet (name,owner,sex,chipNumber,petPedigreeNumber) VALUES('" //ret til database table name
@@ -146,8 +135,6 @@ public class DBcontroller {
         }
     }
 
-
-    //todo getPet ikke done
     public Pet getPet(Pet pet){
         String sql = "select * from user where userid '" + pet.getPetID() + "'";
         //String query = "select * from user where userid 'user' "; explanation for Sofia
@@ -170,7 +157,6 @@ public class DBcontroller {
             throw new RuntimeException(e);
         }
     }
-
 
     //todo getAllPets - ikke done
    /* public ArrayList<Pet> getAllPets() {
@@ -199,8 +185,6 @@ public class DBcontroller {
         }
     }*/
 
-
-    //todo slette kæledyr - ikke helt done
     public static void deletePet(int petID) {
 
         String url = "jdbc:mysql://localhost:3306/RaceKatte";
@@ -211,13 +195,11 @@ public class DBcontroller {
             PreparedStatement pstmt = conn.prepareStatement("DELETE * FROM user WHERE petID = '" + petID + "'");
             pstmt.execute();
 
-            System.out.println("Pet Deleted");
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     //TODO - TESTER LOGIN
     public User getUserPass(User u,String email, String password) {

@@ -14,12 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UIcontroller {
-
  UseCase uc = new UseCase();
 
-
-
-//TODO - index aka forside
  @GetMapping("/") //Forside
  public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
   model.addAttribute("name", name);
@@ -61,11 +57,7 @@ public class UIcontroller {
  @PostMapping("/login")
  public String login(@RequestParam String email, @RequestParam String password, HttpSession session) { //HttpSession er et springboot objekt
   // handle login request
-
-  System.out.println(email + " " + password);
-
   if (!uc.loginUser(email, password)) {
-   System.out.println("forkert bruger");
    return "login";
   } else {
    User user = new User(email, password); // create a new User object
@@ -107,11 +99,7 @@ public class UIcontroller {
  @PostMapping("/signUp")
  public String signUp(@RequestParam String fName, @RequestParam String lName, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
   // handle signup request
-  System.out.println(fName + " " + lName + " " + email+ " " + psw+ " " + phoneNumber);
-
   uc.buildUser(fName, lName, email, psw, phoneNumber);
-
-
   return "redirect:/frontPage";
  }
 
@@ -124,15 +112,9 @@ public class UIcontroller {
  @PostMapping("/editMember")
  public String editMember(@RequestParam String fname, @RequestParam String lname, @RequestParam String email, @RequestParam String psw, @RequestParam int phoneNumber) {
   // handle signup request
-  System.out.println(fname + " " + lname + " " + email+ " " + psw+ " " + phoneNumber);
-
   uc.editUser(fname, lname, email, psw, phoneNumber);
-
-
   return "greeting";
  }
-
-
 
 
  @GetMapping("/oversigt")
@@ -140,8 +122,6 @@ public class UIcontroller {
   // perform some logic here
   return "example-page";
  }
-
-
 
 
  @GetMapping("/dataside")
@@ -157,6 +137,7 @@ public class UIcontroller {
  //when someone presses account run this - not finished
  public void getUser(){
   uc.getUser();
+
  }
 
 
@@ -170,8 +151,6 @@ public class UIcontroller {
  public String readMembertest() {
    User user = uc.getUser();
    //edit name button = user.getfnavn
-
-  System.out.println("den er her");
 
   editMembertest(user);//probably doesn't work
    return "frontPage";

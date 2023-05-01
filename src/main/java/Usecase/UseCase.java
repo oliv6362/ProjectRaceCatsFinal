@@ -11,49 +11,28 @@ public class UseCase {
     DBcontroller db = new DBcontroller();
     public User hentetUser = new User();
 
-    //TODO Login
     public boolean loginUser(String email, String password) {
 
         hentetUser = db.getUserPass(hentetUser,email, password);
 
         if (email.equals(hentetUser.getEmail()) && password.equals(hentetUser.getPassword() )) {
-            System.out.print("Du er nu logget ind");
             hentetUser.setLogin(true);
             return true;
 
         } else {
-            System.out.println("Email eller Password var ikke korrekt");
             return false;
         }
     }
 
-    //todo til redigering af bruger - ikke done
-    //when pressing accout run this
-    public User getUser(){
-
-        return hentetUser;
-    }
-    public void editAccount(User user){
-        db.editUser(user);
-    }
-
-
-    //TODO - Opret user - done
     public void buildUser(String fName, String lName, String email, String password, int phoneNumber){
         db.addUser(new User(fName, lName, email, password, phoneNumber));
     }
 
-
-    // TODO - Rediger user
     public void editUser(String fName, String lName, String email, String password, int phoneNumber){
         db.editUser(new User(fName, lName, email, password, phoneNumber));
     }
 
-    // TODO - Slet user - db er klar
-
-    // TODO - Vis alle users ikke done
     public void showUsers(){
-        System.out.println("Hent alle users");
         ArrayList<User> userList;
         userList = db.getAllUsers();
         for (int i = 0; i < userList.size(); i++) {
@@ -65,10 +44,16 @@ public class UseCase {
         return new Pet(name, owner, sex, chipNo, petPedigreeNo);
     }
 
-    // TODO - Rediger pet
 
-    // TODO - Slet pet - db er klar
-    //se SLette user
+    //todo til redigering af bruger - ikke done
+    //when pressing accout run this
+    public User getUser(){
+
+        return hentetUser;
+    }
+    public void editAccount(User user){
+        db.editUser(user);
+    }
 
     // TODO - Vis alle pets - ikke done
    /* public void showPets(){
